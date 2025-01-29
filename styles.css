@@ -22,39 +22,70 @@ body {
     z-index: 1;  /* Ensure this stays behind the bunny */
 }
 
-/* Flower styling (with better design) */
+/* Flower styling (making it look like a real flower) */
 .flower {
     position: absolute;
     bottom: 30px;  /* Position above the grass */
-    width: 40px;
-    height: 40px;
-    background-color: pink;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;  /* Flower center */
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     animation: flowerAnim 4s linear infinite;  /* Animate flowers */
+    z-index: 2;
 }
 
-/* Adding flower petals to make them look more realistic */
-.flower::before,
+/* Flower petals (using pseudo-elements to add multiple petals) */
+.flower::before, 
 .flower::after {
     content: '';
     position: absolute;
     width: 25px;
-    height: 25px;
+    height: 50px;
     background-color: pink;
-    border-radius: 50%;
+    border-radius: 25px;
+    top: -10px;
+    left: 50%;
+    transform-origin: 50% 100%;
 }
 
 .flower::before {
-    top: -15px;
-    left: 7px;
     transform: rotate(45deg);
 }
 
 .flower::after {
-    top: 15px;
-    left: 7px;
     transform: rotate(-45deg);
+}
+
+/* Additional petals to make the flower more full */
+.flower .petal1,
+.flower .petal2,
+.flower .petal3,
+.flower .petal4 {
+    position: absolute;
+    width: 25px;
+    height: 50px;
+    background-color: pink;
+    border-radius: 25px;
+    top: -10px;
+    left: 50%;
+    transform-origin: 50% 100%;
+}
+
+.flower .petal1 {
+    transform: rotate(90deg);
+}
+
+.flower .petal2 {
+    transform: rotate(135deg);
+}
+
+.flower .petal3 {
+    transform: rotate(225deg);
+}
+
+.flower .petal4 {
+    transform: rotate(270deg);
 }
 
 /* Positioning and animation for each flower with delay */
@@ -71,6 +102,13 @@ body {
 .flower:nth-child(3) {
     left: 80%;
     animation-delay: 2s;
+}
+
+/* Keyframe animation for flowers (bouncing up and down) */
+@keyframes flowerAnim {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
 
 /* Bush styling (more rounded, bush-like) */
@@ -92,13 +130,6 @@ body {
 
 .bush:nth-child(2) {
     left: 60%;
-}
-
-/* Keyframe animation for flowers (bouncing up and down) */
-@keyframes flowerAnim {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
 }
 
 /* Keyframe animation for bushes (swaying left and right) */
