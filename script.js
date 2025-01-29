@@ -1,13 +1,11 @@
-/* styles.css */
-
 /* General body and scene setup */
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #d8f3f0; /* Light sky color */
+    background-color: #d8f3f0; /* Light blue sky color */
 }
 
-/* Scene that contains all elements */
+/* The scene that holds all elements */
 .scene {
     position: relative;
     height: 100vh;
@@ -19,23 +17,23 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 50%;  /* Half the screen is grass */
-    background-color: #68a05e; /* Grass color */
-    z-index: 1;  /* Put this behind the bunny */
+    height: 50%;  /* Half the screen is for the grass */
+    background-color: #68a05e; /* Grass green color */
+    z-index: 1;  /* Ensure this stays behind the bunny */
 }
 
 /* Flower styling */
 .flower {
     position: absolute;
-    bottom: 30px;  /* Height above the ground */
+    bottom: 30px;  /* Position above the grass */
     width: 30px;
     height: 30px;
     background-color: pink;
     border-radius: 50%;
-    animation: flowerAnim 4s linear infinite;
+    animation: flowerAnim 4s linear infinite;  /* Animate flowers */
 }
 
-/* Flower positions with slight animation delay */
+/* Positioning and animation for each flower with delay */
 .flower:nth-child(1) {
     left: 20%;
     animation-delay: 0s;
@@ -59,10 +57,10 @@ body {
     height: 60px;
     background-color: #568203; /* Bush color */
     border-radius: 50%;
-    animation: bushAnim 5s ease-in-out infinite;
+    animation: bushAnim 5s ease-in-out infinite;  /* Animate bushes */
 }
 
-/* Bush positions with some variation */
+/* Bush position */
 .bush:nth-child(1) {
     left: 10%;
 }
@@ -71,14 +69,14 @@ body {
     left: 60%;
 }
 
-/* Animation for flowers */
+/* Keyframe animation for flowers (bouncing up and down) */
 @keyframes flowerAnim {
     0% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0); }
 }
 
-/* Animation for bushes */
+/* Keyframe animation for bushes (swaying left and right) */
 @keyframes bushAnim {
     0% { transform: translateX(0); }
     50% { transform: translateX(-10px); }
@@ -88,18 +86,18 @@ body {
 /* Bunny styling and positioning */
 .container {
     position: absolute;
-    bottom: 80px; /* Keep the bunny above the grass */
+    bottom: 80px; /* Position bunny above the grass */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2; /* Bring the bunny above the background */
+    z-index: 2; /* Ensure the bunny stays on top */
 }
 
 #bunny {
-    width: 150px;
-    transition: transform 0.3s ease;
+    width: 150px; /* Adjust size as necessary */
+    transition: transform 0.3s ease; /* Smooth transition for jumping */
 }
 
-/* Jumping animation */
+/* Jumping animation for the bunny */
 @keyframes jump {
     0% { transform: translateY(0); }
     50% { transform: translateY(-40px); }
