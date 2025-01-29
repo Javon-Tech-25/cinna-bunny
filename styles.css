@@ -1,161 +1,49 @@
-/* General body and scene setup */
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #d8f3f0; /* Light sky color */
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    height: 100vh;
 }
 
-/* The scene that holds all elements */
-.scene {
+.container {
     position: relative;
     height: 100vh;
-    width: 100%;
-}
-
-/* Background container with grass and animated elements */
-.background {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50%;  /* Half the screen is grass */
-    background-color: #68a05e; /* Grass green color */
-    z-index: 1;  /* Ensure this stays behind the bunny */
-}
-
-/* Flower styling (making it look like a real flower) */
-.flower {
-    position: absolute;
-    bottom: 30px;  /* Position above the grass */
-    width: 50px;
-    height: 50px;
-    background-color: yellow;  /* Flower center */
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    animation: flowerAnim 4s linear infinite;  /* Animate flowers */
-    z-index: 2;
-}
-
-/* Flower petals (using pseudo-elements to add multiple petals) */
-.flower::before, 
-.flower::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 50px;
-    background-color: pink;
-    border-radius: 25px;
-    top: -10px;
-    left: 50%;
-    transform-origin: 50% 100%;
-}
-
-.flower::before {
-    transform: rotate(45deg);
-}
-
-.flower::after {
-    transform: rotate(-45deg);
-}
-
-/* Additional petals to make the flower more full */
-.flower .petal1,
-.flower .petal2,
-.flower .petal3,
-.flower .petal4 {
-    position: absolute;
-    width: 25px;
-    height: 50px;
-    background-color: pink;
-    border-radius: 25px;
-    top: -10px;
-    left: 50%;
-    transform-origin: 50% 100%;
-}
-
-.flower .petal1 {
-    transform: rotate(90deg);
-}
-
-.flower .petal2 {
-    transform: rotate(135deg);
-}
-
-.flower .petal3 {
-    transform: rotate(225deg);
-}
-
-.flower .petal4 {
-    transform: rotate(270deg);
-}
-
-/* Positioning and animation for each flower with delay */
-.flower:nth-child(1) {
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.flower:nth-child(2) {
-    left: 50%;
-    animation-delay: 1s;
-}
-
-.flower:nth-child(3) {
-    left: 80%;
-    animation-delay: 2s;
-}
-
-/* Keyframe animation for flowers (bouncing up and down) */
-@keyframes flowerAnim {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-/* Bush styling (more rounded, bush-like) */
-.bush {
-    position: absolute;
-    bottom: 0;
-    width: 120px;
-    height: 80px;
-    background-color: #568203; /* Bush color */
-    border-radius: 50%;
-    animation: bushAnim 5s ease-in-out infinite;  /* Animate bushes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Soft shadow for depth */
-}
-
-/* Bush positions */
-.bush:nth-child(1) {
-    left: 10%;
-}
-
-.bush:nth-child(2) {
-    left: 60%;
-}
-
-/* Keyframe animation for bushes (swaying left and right) */
-@keyframes bushAnim {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-10px); }
-    100% { transform: translateX(0); }
-}
-
-/* Bunny styling and positioning */
-.container {
-    position: absolute;
-    bottom: 80px; /* Position bunny above the grass */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2; /* Ensure the bunny stays on top */
 }
 
 #bunny {
-    width: 100px; /* Adjusted size */
-    transition: transform 0.3s ease; /* Smooth transition for jumping */
+    position: absolute;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    user-select: none;
 }
 
-/* Jumping animation for the bunny */
-@keyframes jump {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-40px); }
-    100% { transform: translateY(0); }
+.bushes {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: #2d5a27;
+}
+
+.bushes::before {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    left: -50px;
+    width: 110%;
+    height: 100px;
+    background: #3d7d35;
+    border-radius: 50%;
+}
+
+.flower {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
