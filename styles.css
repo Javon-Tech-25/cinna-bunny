@@ -1,0 +1,13 @@
+// script.js
+
+const bunny = document.getElementById('bunny');
+
+bunny.addEventListener('click', () => {
+    // Apply the jumping animation to the bunny
+    bunny.style.animation = 'jump 0.5s ease';
+
+    // Reset the animation after it's done
+    setTimeout(() => {
+        bunny.style.animation = ''; // Reset to allow jumping again
+    }, 500);
+});
