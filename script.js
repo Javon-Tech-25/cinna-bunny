@@ -6,8 +6,7 @@ function moveBunny() {
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
     
-    bunny.style.left = `${randomX}px`;
-    bunny.style.top = `${randomY}px`;
+    bunny.style.transform = `translate(${randomX}px, ${randomY}px)`;
 }
 
 bunny.addEventListener('click', moveBunny);
