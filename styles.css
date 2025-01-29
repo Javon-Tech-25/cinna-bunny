@@ -1,71 +1,85 @@
+/* Basic Styles for the page */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #2c3e50;
     overflow: hidden;
-    background: linear-gradient(#87CEEB, #E0F6FF);
-    height: 100vh;
 }
 
-.container {
-    position: relative;
-    height: 100vh;
-}
-
-#bunny {
-    position: absolute;
-    width: 100px; /* Adjust based on your image size */
-    height: auto;
-    cursor: pointer;
-    transition: all 0.5s;
-    user-select: none;
-}
-
-.bushes {
+.night {
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    background: #2d5a27;
-}
-
-.bushes::before {
-    content: '';
-    position: absolute;
-    bottom: 50px;
-    left: -50px;
-    width: 110%;
-    height: 100px;
-    background: #3d7d35;
-    border-radius: 50%;
-}
-
-/* Background flowers */
-.background-flowers {
-    position: absolute;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Ensure they don't interfere with clicks */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
-.flower-bg {
-    position: absolute;
-    font-size: 4rem; /* Larger flowers */
-    animation: sway 5s infinite ease-in-out;
+/* Flowers Styling */
+.flowers {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30vh;
 }
 
-/* Sway animation */
-@keyframes sway {
-    0%, 100% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-}
-
-/* Floating flowers */
 .flower {
-    position: absolute;
-    font-size: 1.5rem;
-    animation: float 3s infinite ease-in-out;
+    position: relative;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.flower__leafs {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.flower__leaf {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #27ae60;
+    margin: 5px;
+}
+
+.flower__white-circle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.flower__light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f39c12;
+}
+
+.flower__line {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.flower__line__leaf {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #27ae60;
+    margin: 3px;
+}
+
+/* Bunny Styling */
+.bunny {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
 }
