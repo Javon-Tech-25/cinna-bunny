@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     margin: 0;
     overflow: hidden;
@@ -62,11 +63,12 @@ body {
     left: -10px;
 }
 
-/* Bunny */
+/* Bunny Styling */
 #bunny {
     position: absolute;
     width: 100px;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out; /* Smooth movement */
 }
 
 /* Animation for moving background */
