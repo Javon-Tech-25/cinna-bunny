@@ -94,4 +94,37 @@ body {
     left: 60%;
 }
 
-/* Keyframe animation
+/* Keyframe animation for flowers (bouncing up and down) */
+@keyframes flowerAnim {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Keyframe animation for bushes (swaying left and right) */
+@keyframes bushAnim {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Bunny styling and positioning */
+.container {
+    position: absolute;
+    bottom: 80px; /* Position bunny above the grass */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Ensure the bunny stays on top */
+}
+
+#bunny {
+    width: 100px; /* Adjusted size */
+    transition: transform 0.3s ease; /* Smooth transition for jumping */
+}
+
+/* Jumping animation for the bunny */
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-40px); }
+    100% { transform: translateY(0); }
+}
